@@ -6,54 +6,64 @@ namespace getMods
     class Program
     {
         static void Main(string[] args)
-        {
-            if (args.Length == 0 || args[0] == "-help" || args[0] == "/help" || args[0] == "-h" || args[0] == "/h")
+    {
+            if (args.Length == 0)
             {
                 getArgs.Program.Help();
             }
-            if (args.Length < 1)
-                return;
-            else if (args[0] == "-backup" || args[0] == "/backup" || args[0] == "-b" || args[0] == "/b")
+            foreach (string arg in args) 
             {
-                if (args.Length < 2)
-                return;
-                if (args.Length == 3)
-                    getArgs.Program.Backup(args[1], args[2]);
-                else
-                    getArgs.Program.Backup(args[1], null);
-            }
-            else if (args[0] == "-restore" || args[0] == "/restore" || args[0] == "-r" || args[0] == "/r")
-            {
-                if (args.Length < 2)
-                    return;
-                if (args.Length == 3) 
-                    getArgs.Program.Restore(args[1], args[2]);
-                else
-                    getArgs.Program.Restore(args[1], null);
-            }
-            else if (args[0] == "-patch" || args[0] == "/patch" || args[0] == "-p" || args[0] == "/p")
-            {
-                if (args.Length < 4)
-                    return;
-                getArgs.Program.Patch(args[1], args[2], args[3]);
-            }
-            else if (args[0] == "-zip" || args[0] == "/zip" || args[0] == "-z" || args[0] == "/z")
-            {
-                if (args.Length < 2)
-                    return;
-                getArgs.Program.Zip(args[1]);
-            }
-            else if (args[0] == "-download" || args[0] == "/download" || args[0] == "-d" || args[0] == "/d")
-            {
-                if (args.Length < 3 && args[2] == "*.zip")
-                    return;
-                getArgs.Program.Download(args[1], args[2]);
-            }
-            else
-            {
-                if (args.Length < 2)
-                    return;
-                getArgs.Program.List(args[0], args[1]);
+                if (arg.Contains("/") || arg.Contains("-") || arg.Contains("--"))
+                {
+                    if (args[0].Contains("h") || args[0].Contains("help"))
+                    {
+                        getArgs.Program.Help();
+                    }
+                    if (args.Length < 1)
+                        return;
+                    else if (args[0].Contains("b") || args[0].Contains("backup"))
+                    {
+                        if (args.Length < 2)
+                        return;
+                        if (args.Length == 3)
+                            getArgs.Program.Backup(args[1], args[2]);
+                        else
+                            getArgs.Program.Backup(args[1], null);
+                    }
+                    else if (args[0].Contains("r") || args[0].Contains("restore"))
+                    {
+                        if (args.Length < 2)
+                            return;
+                        if (args.Length == 3) 
+                            getArgs.Program.Restore(args[1], args[2]);
+                        else
+                            getArgs.Program.Restore(args[1], null);
+                    }
+                    else if (args[0].Contains("p") || args[0].Contains("patch"))
+                    {
+                        if (args.Length < 4)
+                            return;
+                        getArgs.Program.Patch(args[1], args[2], args[3]);
+                    }
+                    else if (args[0].Contains("z") || args[0].Contains("zip"))
+                    {
+                        if (args.Length < 2)
+                            return;
+                        getArgs.Program.Zip(args[1]);
+                    }
+                    else if (args[0].Contains("d") || args[0].Contains("download"))
+                    {
+                        if (args.Length < 3 && args[2].Contains("*.zip"))
+                            return;
+                        getArgs.Program.Download(args[1], args[2]);
+                    }
+                    else
+                    {
+                        if (args.Length < 2)
+                            return;
+                        getArgs.Program.List(args[0], args[1]);
+                    }
+                }
             }
         }
     }
