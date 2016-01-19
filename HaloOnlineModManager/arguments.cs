@@ -17,20 +17,20 @@ namespace getArgs
             Console.WriteLine("[/, -, --]help");
             Console.WriteLine("Displays this help\n");
             Console.WriteLine("[/, -, --]backup");
-            Console.WriteLine("Backs up the selected maps folder\nExample: getMods.exe [-b, -backup] 0.4.11.2 [-f]");
-            Console.WriteLine("This will copy the .dats from maps\\0.4.11.2 to _dewbackup\\maps\\0.4.11.2\n");
+            Console.WriteLine("Backs up the selected maps folder\nExample: getMods.exe [-b, -backup] 0.5.0.0 [-f]");
+            Console.WriteLine("This will copy the .dats from maps\\0.5.0.0 to _dewbackup\\maps\\0.5.0.0\n");
             Console.WriteLine("[/, -, --]restore");
             Console.WriteLine("Restores the selected maps folder\nExample: getMods.exe [-r, -restore] 0.4.11.2 [-f]");
-            Console.WriteLine("This will copy the .dats from maps\\0.4.11.2 to _dewbackup\\maps\\0.4.11.2\n");
+            Console.WriteLine("This will copy the .dats from maps\\0.5.0.0 to _dewbackup\\maps\\0.5.0.0\n");
             Console.WriteLine("[/, -, --]patch");
-            Console.WriteLine("Patches the .dat files in the selected maps folderExample: \ngetMods.exe [-p, -patch] 0.4.11.2 mods\\packs *HangemHigh*");
-            Console.WriteLine("This will patch the .dats in maps\\0.4.11.2 with the xdelta patch files in mods\\packs\\0.4.11.2\\Maps\\HangemHigh\n");
+            Console.WriteLine("Patches the .dat files in the selected maps folderExample: \ngetMods.exe [-p, -patch] 0.5.0.0 mods\\packs *HangemHigh*");
+            Console.WriteLine("This will patch the .dats in maps\\0.5.0.0 with the xdelta patch files in mods\\packs\\0.5.0.0\\Maps\\HangemHigh\n");
             Console.WriteLine("[/, -, --]zip");
             Console.WriteLine("Displays the contents of a zip file\nExample: getMods.exe [-z, -zip] mods\\packs *Lockout*1.1*");
-            Console.WriteLine("This will display the contents of mods\\packs\\0.4.11.2\\LockoutV1.1.zip\n");
+            Console.WriteLine("This will display the contents of mods\\packs\\0.5.0.0\\LockoutV1.1.zip\n");
             Console.WriteLine("[/, -, --]download");
-            Console.WriteLine("Downloads a zip to the selected folder\nExample: getMods.exe [-d, -download] 0.4.11.2 http://AWebsiteLikeDropbox.com/MyAmazeBallsMod.zip");
-            Console.WriteLine("This will download MyAmazeBallsMod.zip mods\\packs\\0.4.11.2\\MyAmazeBallsMod.zip\n");
+            Console.WriteLine("Downloads a zip to the selected folder\nExample: getMods.exe [-d, -download] 0.5.0.0 http://AWebsiteLikeDropbox.com/MyAmazeBallsMod.zip");
+            Console.WriteLine("This will download MyAmazeBallsMod.zip mods\\packs\\0.5.0.0\\MyAmazeBallsMod.zip\n");
             Console.WriteLine("\nPress Any Key To Exit");
             Console.ReadLine();
         }

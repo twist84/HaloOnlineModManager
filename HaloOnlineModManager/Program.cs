@@ -1,7 +1,7 @@
 ﻿using System;
 using getArgs;
 
-namespace getMods
+namespace HaloOnlineModManager
 {
     class Program
     {
@@ -11,12 +11,8 @@ namespace getMods
             {
                 getArgs.Program.Help();
             }
-            if (args[0].Contains("/") || args[0].Contains("-") || args[0].Contains("--"))
-                {
-                if (args[0].Contains("h") || args[0].Contains("help"))
-                {
-                    getArgs.Program.Help();
-                }
+            else if (args[0].Contains("/") || args[0].Contains("-") || args[0].Contains("--"))
+            {
                 if (args.Length < 1)
                     return;
                 else if (args[0].Contains("b") || args[0].Contains("backup"))
@@ -54,6 +50,10 @@ namespace getMods
                     if (args.Length < 3 && args[2].Contains("*.zip"))
                         return;
                     getArgs.Program.Download(args[1], args[2]);
+                }
+                else if (args[0].Contains("?") || args[0].Contains("h") || args[0].Contains("help"))
+                {
+                    getArgs.Program.Help();
                 }
                 else
                 {
