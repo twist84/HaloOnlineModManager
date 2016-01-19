@@ -1,4 +1,4 @@
-# HOXDMO
+# HaloOnlineModManager
 [/, -, --]help
 Displays this help
 
