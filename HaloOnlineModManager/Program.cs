@@ -49,7 +49,10 @@ namespace HaloOnlineModManager
                     if (args.Length < 4)
                         return;
 
-                    getArgs.Program.Patch(args[1], args[2], args[3]);
+                    if (args.Length == 4)
+                        getArgs.Program.Patch(args[1], args[2], args[3], false);
+                    else if (args.Length == 5 && args[4].Contains("b"))
+                        getArgs.Program.Patch(args[1], args[2], args[3], true);
                 }
                 else if (args[0].Contains("z") || args[0].Contains("zip"))
                 {
