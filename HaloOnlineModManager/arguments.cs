@@ -61,8 +61,7 @@ namespace getArgs
                 }
             }
             Console.WriteLine("All .dat files have been backed up successfully.");
-            if (batch == true) { }
-            else 
+            if (batch == false)
             {
                 Console.WriteLine("\nPress Any Key To Exit");
                 Console.ReadLine();
@@ -97,8 +96,7 @@ namespace getArgs
                 }
             }
             Console.WriteLine("All .dat files have been restored successfully.");
-            if (batch == true) { }
-            else
+            if (batch == false)
             {
                 Console.WriteLine("\nPress Any Key To Exit");
                 Console.ReadLine();
@@ -163,8 +161,7 @@ namespace getArgs
                         Console.WriteLine(inZip.Name);
                     }
             }
-            if (batch == true) { }
-            else
+            if (batch == false)
             {
                 Console.WriteLine("\nPress Any Key To Exit");
                 Console.ReadLine();
