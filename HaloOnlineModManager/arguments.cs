@@ -30,7 +30,7 @@ namespace getArgs
             Console.WriteLine("This will display the contents of mods\\packs\\0.5.0.0\\LockoutV1.1.zip\n");
             Console.WriteLine("[/, -, --]download");
             Console.WriteLine("Downloads a zip to the selected folder\nExample: getMods.exe [-d, -download] 0.5.0.0 http://AWebsiteLikeDropbox.com/MyAmazeBallsMod.zip");
-            Console.WriteLine("This will download MyAmazeBallsMod.zip mods\\packs\\0.5.0.0\\MyAmazeBallsMod.zip\n");
+            Console.WriteLine("This will download MyAmazeBallsMod.zip mods\\packs\\0.5.0.0\\MyAmazeBallsMod.zip");
             Console.WriteLine("\nPress Any Key To Exit");
             Console.ReadLine();
         }
