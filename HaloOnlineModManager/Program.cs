@@ -15,10 +15,12 @@ namespace HaloOnlineModManager
             {
                 if (args.Length < 1)
                     return;
+
                 else if (args[0].Contains("b") || args[0].Contains("backup"))
                 {
                     if (args.Length < 2)
                         return;
+
                     if (args.Length == 2)
                         getArgs.Program.Backup(args[1], false, false);
                     else if (args.Length == 3 && args[2].Contains("f"))
@@ -32,6 +34,7 @@ namespace HaloOnlineModManager
                 {
                     if (args.Length < 2)
                         return;
+
                     if (args.Length == 2)
                         getArgs.Program.Restore(args[1], false, false);
                     else if (args.Length == 3 && args[2].Contains("f"))
@@ -45,20 +48,24 @@ namespace HaloOnlineModManager
                 {
                     if (args.Length < 4)
                         return;
+
                     getArgs.Program.Patch(args[1], args[2], args[3]);
                 }
                 else if (args[0].Contains("z") || args[0].Contains("zip"))
                 {
                     if (args.Length < 2)
                         return;
+
                     getArgs.Program.Zip(args[1]);
                 }
                 else if (args[0].Contains("d") || args[0].Contains("download"))
                 {
                     if (args.Length < 3 && args[2].Contains("*.zip"))
                         return;
-                    getArgs.Program.Download(args[1], args[2], false);
-                    if (args.Length < 4 && args[2].Contains("*.zip"))
+
+                    if (args.Length == 3)
+                        getArgs.Program.Download(args[1], args[2], false);
+                    else if (args.Length == 4 && args[2].Contains("b"))
                         getArgs.Program.Download(args[1], args[2], true);
                 }
                 else if (args[0].Contains("?") || args[0].Contains("h") || args[0].Contains("help"))
@@ -69,6 +76,7 @@ namespace HaloOnlineModManager
                 {
                     if (args.Length < 2)
                         return;
+
                     getArgs.Program.List(args[0], args[1]);
                 }
             }
