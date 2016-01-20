@@ -16,8 +16,6 @@ namespace Xdelta.Patch
             using (FileStream target = CreateForWriteAndRead(p2))
                 new Xdelta.Decoder(source, patch, target).Run();
             watcher.Stop();
-
-            Console.WriteLine("Finished Patching " + datFileNameExt + " in {0}", watcher.Elapsed);
         }
 
         private static FileStream OpenForRead(string filePath)

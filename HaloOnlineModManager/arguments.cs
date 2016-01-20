@@ -42,22 +42,26 @@ namespace getArgs
             {
                 foreach (string datFile in getTags)
                 {
+                    Stopwatch watcher = Stopwatch.StartNew();
                     string fileName = Path.GetFileName(datFile);
                     string tagsFolder = cwd + "maps\\" + arg1 + "\\";
                     Directory.CreateDirectory(backupFolder);
                     File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName, true);
-                    Console.WriteLine(fileName + " has been backed up.");
+                    Console.WriteLine(fileName + " has been backed up in {0}.", watcher.Elapsed);
+                    watcher.Stop();
                 }
             }
             else
             {
                 foreach (string datFile in getTags)
                 {
+                    Stopwatch watcher = Stopwatch.StartNew();
                     string fileName = Path.GetFileName(datFile);
                     string tagsFolder = cwd + "maps\\" + arg1 + "\\";
                     Directory.CreateDirectory(backupFolder);
                     File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName);
-                    Console.WriteLine(fileName + " has been backed up.");
+                    Console.WriteLine(fileName + " has been backed up in {0}.", watcher.Elapsed);
+                    watcher.Stop();
                 }
             }
             Console.WriteLine("All .dat files have been backed up successfully.\n");
@@ -79,20 +83,24 @@ namespace getArgs
             {
                 foreach (string datFile in getTags)
                 {
+                    Stopwatch watcher = Stopwatch.StartNew();
                     string fileName = Path.GetFileName(datFile);
                     string tagsFolder = cwd + "maps\\" + arg1 + "\\";
                     File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName, true);
-                    Console.WriteLine(fileName + " has been restored.");
+                    Console.WriteLine(fileName + " has been restored in {0}.", watcher.Elapsed);
+                    watcher.Stop();
                 }
             }
             else
             {
                 foreach (string datFile in getTags)
                 {
+                    Stopwatch watcher = Stopwatch.StartNew();
                     string fileName = Path.GetFileName(datFile);
                     string tagsFolder = cwd + "maps\\" + arg1 + "\\";
                     File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName);
-                    Console.WriteLine(fileName + " has been restored.");
+                    Console.WriteLine(fileName + " has been restored in {0}.", watcher.Elapsed);
+                    watcher.Stop();
                 }
             }
             Console.WriteLine("All .dat files have been restored successfully.\n");
@@ -112,12 +120,14 @@ namespace getArgs
                 string[] getPatchFile = Directory.GetFiles(modDir, "*.patch", SearchOption.AllDirectories);
                 foreach (string patchFile in getPatchFile)
                 {
+                    Stopwatch watcher = Stopwatch.StartNew();
                     string[] getDatFile = Directory.GetFiles(tagsFolder, ".dat", SearchOption.AllDirectories);
                     string patchFileNameExt = Path.GetFileName(patchFile);
                     string patchFileName = Path.GetFileNameWithoutExtension(patchFileNameExt);
                     string datFileNameExt = patchFileName + ".dat";
                     PatchClass.Main(backupFolder + datFileNameExt, patchFile, tagsFolder + datFileNameExt, datFileNameExt);
-                    Console.WriteLine(datFileNameExt + " has been patched.");
+                    Console.WriteLine(datFileNameExt + " has been patched in {0}.", watcher.Elapsed);
+                    watcher.Stop();
                 }
             }
             Console.WriteLine("All .dat files have been patched successfully.\n");
@@ -133,6 +143,7 @@ namespace getArgs
             string[] getMods = Directory.GetFiles(cwd + arg1, "*.zip", SearchOption.AllDirectories);
             foreach (string modFile in getMods)
             {
+                Console.WriteLine("Started showing " + modFile);
                 using (var zipFile = new ZipFile(modFile))
                     foreach (ZipEntry file in zipFile)
                     {
@@ -157,8 +168,10 @@ namespace getArgs
                 WebClient wc = new WebClient();
                 Directory.CreateDirectory(dlLoc);
                 Console.WriteLine("Download started for: " + file[num]);
+                Stopwatch watcher = Stopwatch.StartNew();
                 wc.DownloadFile(arg2, dlLoc + file[num]);
-                Console.WriteLine("Download finished for: " + file[num]);
+                Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
+                watcher.Stop();
                 using (var zipFile = new ZipFile(dlLoc + file[num]))
                     foreach (ZipEntry inZip in zipFile)
                     {
@@ -166,7 +179,7 @@ namespace getArgs
                             continue;   // Ignore directories
                         Console.WriteLine(inZip.Name);
                     }
-                Console.WriteLine("Successfully downloaded" + file[num] + "\n");
+                Console.WriteLine("Successfully downloaded " + file[num] + "\n");
             }
             if (batch == false)
             {
