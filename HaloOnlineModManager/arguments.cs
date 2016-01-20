@@ -34,36 +34,41 @@ namespace getArgs
             Console.WriteLine("\nPress Any Key To Exit");
             Console.ReadLine();
         }
-        internal static void Backup(string arg1, string arg2)
+        internal static void Backup(string arg1, bool force, bool batch)
         {
             string[] getTags = Directory.GetFiles(cwd + "maps\\" + arg1 + "\\", "*.dat", SearchOption.TopDirectoryOnly);
             Console.WriteLine("Backup started.");
-            if (arg2.Contains("/") || arg2.Contains("-") || arg2.Contains("--"))
+            if (force == true)
             {
-                if (arg2.Contains("f") || arg2.Contains("force"))
-                    foreach (string datFile in getTags)
-                    {
-                        string fileName = Path.GetFileName(datFile);
-                        string tagsFolder = cwd + "maps\\" + arg1 + "\\";
-                        Directory.CreateDirectory(backupFolder);
-                        File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName, true);
-                        Console.WriteLine(fileName + " has been backed up.");
-                    }
-                else
-                    foreach (string datFile in getTags)
-                    {
-                        string fileName = Path.GetFileName(datFile);
-                        string tagsFolder = cwd + "maps\\" + arg2 + "\\";
-                        Directory.CreateDirectory(backupFolder);
-                        File.Copy(tagsFolder + fileName, backupFolder + arg2 + "\\" + fileName);
-                        Console.WriteLine(fileName + " has been backed up.");
-                    }
+                foreach (string datFile in getTags)
+                {
+                    string fileName = Path.GetFileName(datFile);
+                    string tagsFolder = cwd + "maps\\" + arg1 + "\\";
+                    Directory.CreateDirectory(backupFolder);
+                    File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName, true);
+                    Console.WriteLine(fileName + " has been backed up.");
+                }
+            }
+            else
+            {
+                foreach (string datFile in getTags)
+                {
+                    string fileName = Path.GetFileName(datFile);
+                    string tagsFolder = cwd + "maps\\" + arg1 + "\\";
+                    Directory.CreateDirectory(backupFolder);
+                    File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName);
+                    Console.WriteLine(fileName + " has been backed up.");
+                }
             }
             Console.WriteLine("All .dat files have been backed up successfully.");
-            Console.WriteLine("\nPress Any Key To Exit");
-            Console.ReadLine();
+            if (batch == true) { }
+            else 
+            {
+                Console.WriteLine("\nPress Any Key To Exit");
+                Console.ReadLine();
+            }
         }
-        internal static void Restore(string arg1, string arg2)
+        internal static void Restore(string arg1, bool force, bool batch)
         {
             string[] getTags = Directory.GetFiles(
                 backupFolder + arg1 + "\\",
@@ -71,33 +76,39 @@ namespace getArgs
                 SearchOption.TopDirectoryOnly
             );
             Console.WriteLine("Restore started.");
-            if (arg2.Contains("/") || arg2.Contains("-") || arg2.Contains("--"))
+            if (force == true)
             {
-                if (arg2.Contains("f") || arg2.Contains("force"))
-                    foreach (string datFile in getTags)
-                    {
-                        string fileName = Path.GetFileName(datFile);
-                        string tagsFolder = cwd + "maps\\" + arg1 + "\\";
-                        File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName, true);
-                        Console.WriteLine(fileName + " has been restored.");
-                    }
-                else
-                    foreach (string datFile in getTags)
-                    {
-                        string fileName = Path.GetFileName(datFile);
-                        string tagsFolder = cwd + "maps\\" + arg1 + "\\";
-                        File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName);
-                        Console.WriteLine(fileName + " has been restored.");
-                    }
+                foreach (string datFile in getTags)
+                {
+                    string fileName = Path.GetFileName(datFile);
+                    string tagsFolder = cwd + "maps\\" + arg1 + "\\";
+                    File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName, true);
+                    Console.WriteLine(fileName + " has been restored.");
+                }
+            }
+            else
+            {
+                foreach (string datFile in getTags)
+                {
+                    string fileName = Path.GetFileName(datFile);
+                    string tagsFolder = cwd + "maps\\" + arg1 + "\\";
+                    File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName);
+                    Console.WriteLine(fileName + " has been restored.");
+                }
             }
             Console.WriteLine("All .dat files have been restored successfully.");
-            Console.WriteLine("\nPress Any Key To Exit");
-            Console.ReadLine();
+            if (batch == true) { }
+            else
+            {
+                Console.WriteLine("\nPress Any Key To Exit");
+                Console.ReadLine();
+            }
         }
         internal static void Patch(string arg1, string arg2, string arg3)
         {
             string tagsFolder = cwd + "maps\\" + arg1 + "\\";
             string[] getModDir = Directory.GetDirectories(cwd + arg2, arg3, SearchOption.AllDirectories);
+            Console.WriteLine("Patching started.");
             foreach (string modDir in getModDir)
             {
                 string[] getPatchFile = Directory.GetFiles(modDir, "*.patch", SearchOption.AllDirectories);
@@ -108,10 +119,10 @@ namespace getArgs
                     string patchFileName = Path.GetFileNameWithoutExtension(patchFileNameExt);
                     string datFileNameExt = patchFileName + ".dat";
                     PatchClass.Main(backupFolder + datFileNameExt, patchFile, tagsFolder + datFileNameExt, datFileNameExt);
-                    Console.WriteLine(datFileNameExt + " has been restored.");
+                    Console.WriteLine(datFileNameExt + " has been patched.");
                 }
             }
-            Console.WriteLine("All .dat files have been patched successfully.");
+            Console.WriteLine("All .dat files have been patched successfully.\n");
 
         }
         internal static void Zip(string arg1)
@@ -128,7 +139,7 @@ namespace getArgs
                     }
             }
         }
-        internal static void Download(string arg1, string arg2)
+        internal static void Download(string arg1, string arg2, bool batch)
         {
             if (arg2.Contains("google"))
                 Console.WriteLine("There is currently no support for google drive or google docs.");
@@ -152,8 +163,12 @@ namespace getArgs
                         Console.WriteLine(inZip.Name);
                     }
             }
-            Console.WriteLine("\nPress Any Key To Exit");
-            Console.ReadLine();
+            if (batch == true) { }
+            else
+            {
+                Console.WriteLine("\nPress Any Key To Exit");
+                Console.ReadLine();
+            }
         }
         internal static void List(string arg0, string arg1)
         {

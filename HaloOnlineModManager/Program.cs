@@ -18,20 +18,28 @@ namespace HaloOnlineModManager
                 else if (args[0].Contains("b") || args[0].Contains("backup"))
                 {
                     if (args.Length < 2)
-                    return;
-                    if (args.Length == 3)
-                        getArgs.Program.Backup(args[1], args[2]);
-                    else
-                        getArgs.Program.Backup(args[1], null);
+                        return;
+                    if (args.Length == 2)
+                        getArgs.Program.Backup(args[1], false, false);
+                    else if (args.Length == 3 && args[2].Contains("f"))
+                        getArgs.Program.Backup(args[1], true, false);
+                    else if (args.Length == 3 && args[2].Contains("b"))
+                        getArgs.Program.Backup(args[1], true, false);
+                    else if (args.Length == 4)
+                        getArgs.Program.Backup(args[1], true, true);
                 }
                 else if (args[0].Contains("r") || args[0].Contains("restore"))
                 {
                     if (args.Length < 2)
                         return;
-                    if (args.Length == 3) 
-                        getArgs.Program.Restore(args[1], args[2]);
-                    else
-                        getArgs.Program.Restore(args[1], null);
+                    if (args.Length == 2)
+                        getArgs.Program.Restore(args[1], false, false);
+                    else if (args.Length == 3 && args[2].Contains("f"))
+                        getArgs.Program.Restore(args[1], true, false);
+                    else if (args.Length == 3 && args[2].Contains("b"))
+                        getArgs.Program.Restore(args[1], false, true);
+                    else if (args.Length == 4)
+                        getArgs.Program.Restore(args[1], true, true);
                 }
                 else if (args[0].Contains("p") || args[0].Contains("patch"))
                 {
@@ -49,7 +57,9 @@ namespace HaloOnlineModManager
                 {
                     if (args.Length < 3 && args[2].Contains("*.zip"))
                         return;
-                    getArgs.Program.Download(args[1], args[2]);
+                    getArgs.Program.Download(args[1], args[2], false);
+                    if (args.Length < 4 && args[2].Contains("*.zip"))
+                        getArgs.Program.Download(args[1], args[2], true);
                 }
                 else if (args[0].Contains("?") || args[0].Contains("h") || args[0].Contains("help"))
                 {
