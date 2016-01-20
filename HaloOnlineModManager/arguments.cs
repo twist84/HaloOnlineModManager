@@ -108,8 +108,11 @@ namespace getArgs
                     string patchFileName = Path.GetFileNameWithoutExtension(patchFileNameExt);
                     string datFileNameExt = patchFileName + ".dat";
                     PatchClass.Main(backupFolder + datFileNameExt, patchFile, tagsFolder + datFileNameExt, datFileNameExt);
+                    Console.WriteLine(datFileNameExt + " has been restored.");
                 }
             }
+            Console.WriteLine("All .dat files have been patched successfully.");
+
         }
         internal static void Zip(string arg1)
         {
@@ -129,6 +132,8 @@ namespace getArgs
         {
             if (arg2.Contains("google"))
                 Console.WriteLine("There is currently no support for google drive or google docs.");
+            if (arg2.Contains("mega.co.nz") || arg2.Contains("mega.nz"))
+                Console.WriteLine("There is currently no support for Mega.");
             else
             {
                 string[] file = Regex.Split(arg2, "/");
