@@ -63,7 +63,7 @@ namespace HaloOnlineModManager
                 }
                 else if (args[0].Contains("d") || args[0].Contains("download"))
                 {
-                    if (args.Length < 4 && args[2].Contains("*.zip") || args[2].Contains("*.rar"))
+                    if (args.Length < 4 && args[2].Contains("*.zip"))// || args[2].Contains("*.rar"))
                         return;
 
                     if (args.Length == 4)
