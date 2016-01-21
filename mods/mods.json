@@ -1,32 +1,30 @@
 {
-    "0.4.11.2": {
-        "mods": {
-            "H2ABR": {
-                "name": "Halo 2: Anniversary Battle Rifle",
-                "version": "1.3",
-                "filename": "H2ABR_V1.3.zip",
-                "url": "https://mega.nz/#!49kjTKDT!8xfkZ-bFHYVkBiTcwTXgrp9HwYZq1p_3-ZD21r0uIIw",
-            }
-        }
-    },
-    "0.5.0.0": {
-        "mods": {
-            "HANGEMHIGH": {
-                "name": "Hang 'Em High",
-                "version": "NULL",
-                "filename": "hangemhigh.rar",
-                "url": "https://www.dropbox.com/s/yvlagi1ssh4th77/hangemhigh.rar?dl=0",
-                "dependency": [
-                    "mods": {
-                        "FLATGRASS": {
-                            "name": "FlatGrass",
-                            "version": "R08-101",
-                            "filename": "FlatGrass R08 Release.zip",
-                            "url": "https://mega.nz/#!eB10TZSY!NVMJk5nxWBAN14z7vEwfd22l7mh0rKeNyTFH5w-MDTU",
-                        }
-                    }
-                ]
-            }
-        }
-    }
+	"0.4.11.2": {
+		"mods": {
+			"H2ABR": {
+				"name": "Halo 2: Anniversary Battle Rifle",
+				"version": "1.3",
+				"filename": "H2ABR_V1.3.zip",
+				"url": "https://mega.nz/#!49kjTKDT!8xfkZ-bFHYVkBiTcwTXgrp9HwYZq1p_3-ZD21r0uIIw"
+			}
+		}
+	},
+	"0.5.0.0": {
+		"mods": {
+			"HANGEMHIGH": {
+				"Name": "Hang 'Em High",
+				"Version": "NULL",
+				"Filename": "hangemhigh.rar",
+				"Url": "https://www.dropbox.com/s/yvlagi1ssh4th77/hangemhigh.rar?dl=0",
+				"Dependency": {
+					"FLATGRASS": {
+						"Name": "FlatGrass",
+						"Version": "R08-101",
+						"Filename": "FlatGrass R08 Release.zip",
+						"Url": "https://mega.nz/#!eB10TZSY!NVMJk5nxWBAN14z7vEwfd22l7mh0rKeNyTFH5w-MDTU"
+					}
+				}
+			}
+		}
+	}
 }
