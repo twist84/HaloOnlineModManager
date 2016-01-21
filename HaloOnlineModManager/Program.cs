@@ -63,13 +63,13 @@ namespace HaloOnlineModManager
                 }
                 else if (args[0].Contains("d") || args[0].Contains("download"))
                 {
-                    if (args.Length < 3 && args[2].Contains("*.zip"))
+                    if (args.Length < 4 && args[2].Contains("*.zip") || args[2].Contains("*.rar"))
                         return;
 
-                    if (args.Length == 3)
-                        getArgs.Program.Download(args[1], args[2], false);
-                    else if (args.Length == 4 && args[2].Contains("b"))
-                        getArgs.Program.Download(args[1], args[2], true);
+                    if (args.Length == 4)
+                        getArgs.Program.Download(args[1], args[2], args[3], false);
+                    else if (args.Length == 5 && args[2].Contains("b"))
+                        getArgs.Program.Download(args[1], args[2], args[3], true);
                 }
                 else if (args[0].Contains("?") || args[0].Contains("h") || args[0].Contains("help"))
                 {

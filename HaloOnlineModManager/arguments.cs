@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
+using CG.Web.MegaApiClient;
+using HaloOnlineLib;
 using ICSharpCode.SharpZipLib.Zip;
 using Xdelta.Patch;
 
@@ -29,8 +31,10 @@ namespace getArgs
             Console.WriteLine("Displays the contents of a zip file\nExample: getMods.exe [-z, -zip] mods\\packs *Lockout*1.1*");
             Console.WriteLine("This will display the contents of mods\\packs\\0.4.11.2\\LockoutV1.1.zip\n");
             Console.WriteLine("[/, -, --]download");
-            Console.WriteLine("Downloads a zip to the selected folder\nExample: getMods.exe [-d, -download] 0.4.11.2 http://AWebsiteLikeDropbox.com/MyAmazeBallsMod.zip [-b]");
+            Console.WriteLine("Downloads a zip to the selected folder\nExample: getMods.exe [-d, -download] 0.4.11.2 http://AWebsiteLikeDropbox.com/MyAmazeBallsMod.zip MyAmazeBallsMod.zip [-b]");
             Console.WriteLine("This will download MyAmazeBallsMod.zip mods\\packs\\0.4.11.2\\MyAmazeBallsMod.zip");
+            Console.WriteLine("Example: getMods.exe [-d, -download] 0.4.11.2 https://mega.nz/#!49kjTKDT!8xfkZ-bFHYVkBiTcwTXgrp9HwYZq1p_3-ZD21r0uIIW H2ABR_V1.3.zip [-b]");
+            Console.WriteLine("This will download MyAmazeBallsMod.zip mods\\packs\\0.4.11.2\\H2ABR_V1.3.zip");
             Console.WriteLine("\nPress Any Key To Exit");
             Console.ReadLine();
         }
@@ -154,32 +158,70 @@ namespace getArgs
                 Console.WriteLine("Finished showing " + modFile + "\n");
             }
         }
-        internal static void Download(string arg1, string arg2, bool batch)
+        internal static void Download(string arg1, string arg2, string arg3, bool batch)
         {
+            string dlLoc = cwd + "mods\\packs\\" + arg1 + "\\";
             if (arg2.Contains("google"))
                 Console.WriteLine("There is currently no support for google drive or google docs.\n");
             else if (arg2.Contains("mega.co.nz") || arg2.Contains("mega.nz"))
-                Console.WriteLine("There is currently no support for Mega.\n");
+            {
+                MegaApiClient client = new MegaApiClient();
+                client.LoginAnonymous();
+                Uri uri = new Uri(arg2);
+                Console.WriteLine("Download started for: " + arg3);
+                Stopwatch watcher = Stopwatch.StartNew();
+                client.DownloadFile(uri, dlLoc + arg3);
+                Console.WriteLine("Download finished for: " + arg3 + " in {0}.\n ", watcher.Elapsed);
+                watcher.Stop();
+            }
+            else if (arg2.Contains("dropbox"))
+            {
+                if (arg2.Contains("dl.dropboxusercontent.com"))
+                {
+                    string[] file = Regex.Split(arg2, "/");
+                    int num = file.Length - 1;
+                    System.Net.WebClient wc = new System.Net.WebClient();
+                    Directory.CreateDirectory(dlLoc);
+                    Console.WriteLine("Download started for: " + file[num]);
+                    Stopwatch watcher = Stopwatch.StartNew();
+                    wc.DownloadFile(arg2, dlLoc + file[num]);
+                    Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
+                    watcher.Stop();
+                    using (var zipFile = new ZipFile(dlLoc + file[num]))
+                        foreach (ZipEntry inZip in zipFile)
+                        {
+                            if (!inZip.IsFile)
+                                continue;   // Ignore directories
+                            Console.WriteLine(inZip.Name);
+                        }
+                    Console.WriteLine("Successfully downloaded " + file[num] + "\n");
+                }
+                else
+                {
+                    string url = Regex.Replace(arg2, "www.dropbox.com", "dl.dropboxusercontent.com");
+                    string[] url0 = Regex.Split(url, "\\?");
+                    string[] file = Regex.Split(url0[0], "/");
+                    int num = file[0].Length - 1;
+                    System.Net.WebClient wc = new System.Net.WebClient();
+                    Directory.CreateDirectory(dlLoc);
+                    Console.WriteLine("Download started for: " + file[num]);
+                    Stopwatch watcher = Stopwatch.StartNew();
+                    wc.DownloadFile(url, dlLoc + file[num]);
+                    Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
+                    watcher.Stop();
+                    using (var zipFile = new ZipFile(dlLoc + file[num]))
+                        foreach (ZipEntry inZip in zipFile)
+                        {
+                            if (!inZip.IsFile)
+                                continue;   // Ignore directories
+                            Console.WriteLine(inZip.Name);
+                        }
+                    Console.WriteLine("Successfully downloaded " + file[num] + "\n");
+                }
+            }
             else
             {
-                string[] file = Regex.Split(arg2, "/");
-                int num = file.Length - 1;
-                string dlLoc = cwd + "mods\\packs\\" + arg1 + "\\";
-                WebClient wc = new WebClient();
-                Directory.CreateDirectory(dlLoc);
-                Console.WriteLine("Download started for: " + file[num]);
-                Stopwatch watcher = Stopwatch.StartNew();
-                wc.DownloadFile(arg2, dlLoc + file[num]);
-                Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
-                watcher.Stop();
-                using (var zipFile = new ZipFile(dlLoc + file[num]))
-                    foreach (ZipEntry inZip in zipFile)
-                    {
-                        if (!inZip.IsFile)
-                            continue;   // Ignore directories
-                        Console.WriteLine(inZip.Name);
-                    }
-                Console.WriteLine("Successfully downloaded " + file[num] + "\n");
+
             }
             if (batch == false)
             {
