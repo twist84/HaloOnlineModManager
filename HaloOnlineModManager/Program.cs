@@ -75,6 +75,10 @@ namespace HaloOnlineModManager
                 {
                     getArgs.Program.Help();
                 }
+                else if (args[0].Contains("a") || args[0].Contains("available"))
+                {
+                    getArgs.Program.Available();
+                }
                 else
                 {
                     if (args.Length < 2)

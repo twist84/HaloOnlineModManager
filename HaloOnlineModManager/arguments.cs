@@ -2,11 +2,14 @@
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using CG.Web.MegaApiClient;
 using HaloOnlineLib;
 using ICSharpCode.SharpZipLib.Zip;
+using Newtonsoft.Json;
 using Xdelta.Patch;
+using Newtonsoft.Json.Linq;
 
 namespace getArgs
 {
@@ -51,8 +54,8 @@ namespace getArgs
                     string tagsFolder = cwd + "maps\\" + arg1 + "\\";
                     Directory.CreateDirectory(backupFolder);
                     File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName, true);
-                    Console.WriteLine(fileName + " has been backed up in {0}.", watcher.Elapsed);
                     watcher.Stop();
+                    Console.WriteLine(fileName + " has been backed up in {0}.", watcher.Elapsed);
                 }
             }
             else
@@ -64,8 +67,8 @@ namespace getArgs
                     string tagsFolder = cwd + "maps\\" + arg1 + "\\";
                     Directory.CreateDirectory(backupFolder);
                     File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName);
-                    Console.WriteLine(fileName + " has been backed up in {0}.", watcher.Elapsed);
                     watcher.Stop();
+                    Console.WriteLine(fileName + " has been backed up in {0}.", watcher.Elapsed);
                 }
             }
             Console.WriteLine("All .dat files have been backed up successfully.\n");
@@ -91,8 +94,8 @@ namespace getArgs
                     string fileName = Path.GetFileName(datFile);
                     string tagsFolder = cwd + "maps\\" + arg1 + "\\";
                     File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName, true);
-                    Console.WriteLine(fileName + " has been restored in {0}.", watcher.Elapsed);
                     watcher.Stop();
+                    Console.WriteLine(fileName + " has been restored in {0}.", watcher.Elapsed);
                 }
             }
             else
@@ -103,8 +106,8 @@ namespace getArgs
                     string fileName = Path.GetFileName(datFile);
                     string tagsFolder = cwd + "maps\\" + arg1 + "\\";
                     File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName);
-                    Console.WriteLine(fileName + " has been restored in {0}.", watcher.Elapsed);
                     watcher.Stop();
+                    Console.WriteLine(fileName + " has been restored in {0}.", watcher.Elapsed);
                 }
             }
             Console.WriteLine("All .dat files have been restored successfully.\n");
@@ -130,8 +133,8 @@ namespace getArgs
                     string patchFileName = Path.GetFileNameWithoutExtension(patchFileNameExt);
                     string datFileNameExt = patchFileName + ".dat";
                     PatchClass.Main(backupFolder + datFileNameExt, patchFile, tagsFolder + datFileNameExt, datFileNameExt);
-                    Console.WriteLine(datFileNameExt + " has been patched in {0}.", watcher.Elapsed);
                     watcher.Stop();
+                    Console.WriteLine(datFileNameExt + " has been patched in {0}.", watcher.Elapsed);
                 }
             }
             Console.WriteLine("All .dat files have been patched successfully.\n");
@@ -171,8 +174,8 @@ namespace getArgs
                 Console.WriteLine("Download started for: " + arg3);
                 Stopwatch watcher = Stopwatch.StartNew();
                 client.DownloadFile(uri, dlLoc + arg3);
-                Console.WriteLine("Download finished for: " + arg3 + " in {0}.\n ", watcher.Elapsed);
                 watcher.Stop();
+                Console.WriteLine("Download finished for: " + arg3 + " in {0}.\n ", watcher.Elapsed);
             }
             else if (arg2.Contains("dropbox"))
             {
@@ -185,8 +188,8 @@ namespace getArgs
                     Console.WriteLine("Download started for: " + file[num]);
                     Stopwatch watcher = Stopwatch.StartNew();
                     wc.DownloadFile(arg2, dlLoc + file[num]);
-                    Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
                     watcher.Stop();
+                    Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
                     using (var zipFile = new ZipFile(dlLoc + file[num]))
                         foreach (ZipEntry inZip in zipFile)
                         {
@@ -207,8 +210,8 @@ namespace getArgs
                     Console.WriteLine("Download started for: " + file[num]);
                     Stopwatch watcher = Stopwatch.StartNew();
                     wc.DownloadFile(url, dlLoc + file[num]);
-                    Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
                     watcher.Stop();
+                    Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
                     using (var zipFile = new ZipFile(dlLoc + file[num]))
                         foreach (ZipEntry inZip in zipFile)
                         {
@@ -221,12 +224,38 @@ namespace getArgs
             }
             else
             {
-
+                string[] file = Regex.Split(arg2, "/");
+                int num = file.Length - 1;
+                System.Net.WebClient wc = new System.Net.WebClient();
+                Directory.CreateDirectory(dlLoc);
+                Console.WriteLine("Download started for: " + file[num]);
+                Stopwatch watcher = Stopwatch.StartNew();
+                wc.DownloadFile(arg2, dlLoc + file[num]);
+                watcher.Stop();
+                Console.WriteLine("Download finished for: " + file[num] + " in {0}.\n ", watcher.Elapsed);
+                using (var zipFile = new ZipFile(dlLoc + file[num]))
+                    foreach (ZipEntry inZip in zipFile)
+                    {
+                        if (!inZip.IsFile)
+                            continue;   // Ignore directories
+                        Console.WriteLine(inZip.Name);
+                    }
+                Console.WriteLine("Successfully downloaded " + file[num] + "\n");
             }
             if (batch == false)
             {
                 Console.WriteLine("Press Any Key To Exit");
                 Console.ReadLine();
+            }
+        }
+        internal static void Available()
+        {
+            using (System.Net.WebClient wc = new System.Net.WebClient())
+            {
+                var url = wc.DownloadString("http://thetwist84.github.io/HaloOnlineModManager/mods/mods.json");
+                string json = JsonConvert.SerializeObject(url);
+                JObject mods = JObject.Parse(url);
+                Console.WriteLine(mods["0.5.0.0"]["mods"]["HANGEMHIGH"]["Name"] + ": " + mods["0.5.0.0"]["mods"]["HANGEMHIGH"]["Url"] + " " + mods["0.5.0.0"]["mods"]["HANGEMHIGH"]["Filename"]);
             }
         }
         internal static void List(string arg0, string arg1)
