@@ -8,15 +8,15 @@
                 "url": "https://mega.nz/#!49kjTKDT!8xfkZ-bFHYVkBiTcwTXgrp9HwYZq1p_3-ZD21r0uIIw"
             }
         }
-    }
+    },
     "0.5.0.0": {
-          "mods": {
-              "HANGEMHIGH": {
-                  "name": "Hang 'Em High",
-                  "version": "X",
-                  "filename": "hangemhigh.rar",
-                  "url": "https://www.dropbox.com/s/yvlagi1ssh4th77/hangemhigh.rar?dl=0"
-              }
+        "mods": {
+            "HANGEMHIGH": {
+                "name": "Hang 'Em High",
+                "version": "X",
+                "filename": "hangemhigh.rar",
+                "url": "https://www.dropbox.com/s/yvlagi1ssh4th77/hangemhigh.rar?dl=0"
+            }
         }
     }
 }
