@@ -17,17 +17,17 @@
                 "Dependencies": [
                     "FLATGRASS"
                 ]
-            },
+            }
+        }
+    },
+    "0.5.0.2": {
             "SCARABGUN": {
                 "Author": "Zharbon",
                 "Name": "Scarab Gun Mod",
                 "Version": "2",
                 "Filename": "Scarab Gun Mod.zip",
                 "Url": "https://mega.nz/#!U5lSmJpT!CpFRE7HUAwuxKsbRcdYXb6j0A-MJWDKFAuO1uoqQ9DI"
-            }
-        }
-    },
-    "0.5.0.2": {
+            },
             "AIRGLOW": {
                 "Author": "8Phantasm",
                 "Name": "Airglow",
