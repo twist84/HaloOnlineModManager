@@ -6,7 +6,7 @@
                 "Version": "R08-101",
                 "Filename": "FlatGrass R08 Release.zip",
                 "Url": "https://mega.nz/#!eB10TZSY!NVMJk5nxWBAN14z7vEwfd22l7mh0rKeNyTFH5w-MDTU"
-            }
+            },
             "HANGEMHIGH": {
                 "Name": "Hang 'Em High",
                 "Version": "NULL",
@@ -15,13 +15,13 @@
                 "Dependency": {
                     "mod": "FLATGRASS"
                 }
-            }
+            },
             "H3ARMORS": {
                 "Name": "Halo 3 Armors",
                 "Version": "2.4",
                 "Filename": "halo3armors_2.4.zip",
                 "Url": "https://mega.nz/#!15cknapb!Qy4aP7bF19UjMr_Gqz5omSOOnY_ifAeBF3Coa1KXgOY",
-            }
+            },
             "H3HUD": {
                 "Name": "Halo 3 HUD for Halo Online",
                 "Version": "1.2",
