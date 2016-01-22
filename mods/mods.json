@@ -1,29 +1,32 @@
 {
-    "0.4.11.2": {
-        "mods": {
-            "H2ABR": {
-                "name": "Halo 2: Anniversary Battle Rifle",
-                "version": "1.3",
-                "filename": "H2ABR_V1.3.zip",
-                "url": "https://mega.nz/#!49kjTKDT!8xfkZ-bFHYVkBiTcwTXgrp9HwYZq1p_3-ZD21r0uIIw"
-            }
-        }
-    },
     "0.5.0.0": {
         "mods": {
+            "FLATGRASS": {
+                "Name": "FlatGrass",
+                "Version": "R08-101",
+                "Filename": "FlatGrass R08 Release.zip",
+                "Url": "https://mega.nz/#!eB10TZSY!NVMJk5nxWBAN14z7vEwfd22l7mh0rKeNyTFH5w-MDTU"
+            }
             "HANGEMHIGH": {
                 "Name": "Hang 'Em High",
                 "Version": "NULL",
                 "Filename": "hangemhigh.rar",
                 "Url": "https://www.dropbox.com/s/yvlagi1ssh4th77/hangemhigh.rar?dl=0",
                 "Dependency": {
-                    "FLATGRASS": {
-                        "Name": "FlatGrass",
-                        "Version": "R08-101",
-                        "Filename": "FlatGrass R08 Release.zip",
-                        "Url": "https://mega.nz/#!eB10TZSY!NVMJk5nxWBAN14z7vEwfd22l7mh0rKeNyTFH5w-MDTU"
-                    }
+                    "mod": "FLATGRASS"
                 }
+            }
+            "H3ARMORS": {
+                "Name": "Halo 3 Armors",
+                "Version": "2.4",
+                "Filename": "halo3armors_2.4.zip",
+                "Url": "https://mega.nz/#!15cknapb!Qy4aP7bF19UjMr_Gqz5omSOOnY_ifAeBF3Coa1KXgOY",
+            }
+            "H3HUD": {
+                "Name": "Halo 3 HUD for Halo Online",
+                "Version": "1.2",
+                "Filename": "Halo 3 HUD V1.2.zip",
+                "Url": "https://mega.nz/#!LopnzBRA!SRieJ3oBRG0R-WZeWVavyzgg1QPVyt20BHuloh2ILXs",
             }
         }
     }
