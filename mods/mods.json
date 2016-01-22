@@ -12,25 +12,20 @@
                 "Version": "NULL",
                 "Filename": "hangemhigh.rar",
                 "Url": "https://www.dropbox.com/s/yvlagi1ssh4th77/hangemhigh.rar?dl=0",
-                "Dependencies": {
-                    "mods": [
-                        "FLATGRASS"
-                    ]
-                
-                }
+                "Dependencies": [
+                    "FLATGRASS"
+                ]
             },
             "H3ARMORS": {
                 "Name": "Halo 3 Armors",
                 "Version": "2.4",
                 "Filename": "halo3armors_2.4.zip",
                 "Url": "https://mega.nz/#!15cknapb!Qy4aP7bF19UjMr_Gqz5omSOOnY_ifAeBF3Coa1KXgOY"
-                "Dependencies": {
-                    "maps": [
-                        "https://files.gruntmods.com/halo/Files/Halo%203/Maps/mainmenu.rar",
-                        "https://files.gruntmods.com/halo/Files/Halo%203/Maps/salvation.rar",
-                        "https://files.gruntmods.com/halo/Files/Halo%203/Maps/shared.rar"
-                    ]
-                }
+                "Dependencies": [
+                    "https://files.gruntmods.com/halo/Files/Halo%203/Maps/mainmenu.rar",
+                    "https://files.gruntmods.com/halo/Files/Halo%203/Maps/salvation.rar",
+                    "https://files.gruntmods.com/halo/Files/Halo%203/Maps/shared.rar"
+                ]
             },
             "H3HUD": {
                 "Name": "Halo 3 HUD for Halo Online",
@@ -40,12 +35,10 @@
             },
             "H3PACK": {
                 "Name": "Halo 3 Pack",
-                "Dependencies": {
-                    "mod": [
-                        "H3ARMORS",
-                        "H3HUD"
-                    ]
-                }
+                "Dependencies": [
+                    "H3ARMORS",
+                    "H3HUD"
+                ]
             }
         }
     }
