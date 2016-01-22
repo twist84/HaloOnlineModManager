@@ -34,7 +34,7 @@
                 "Name": "Halo 3 Pack",
                 "Dependencies": {
                     "mod": {
-                        "H3ARMORS",
+                        "H3ARMORS"
                         "H3HUD"
                     }
                 }
