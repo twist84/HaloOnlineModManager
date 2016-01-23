@@ -250,12 +250,28 @@ namespace getArgs
         }
         internal static void Available()
         {
-            using (System.Net.WebClient wc = new System.Net.WebClient())
+            System.Net.WebClient wc = new System.Net.WebClient();
+            dynamic mods = JsonConvert.DeserializeObject(wc.DownloadString("http://thetwist84.github.io/HaloOnlineModManager/mods/mods.json"));
+            FileVersionInfo mtndewVersion = FileVersionInfo.GetVersionInfo(Path.Combine(Environment.CurrentDirectory, "mtndew.dll"));
+
+            foreach (dynamic mod in mods[mtndewVersion].mods)
             {
-                var url = wc.DownloadString("http://thetwist84.github.io/HaloOnlineModManager/mods/mods.json");
-                string json = JsonConvert.SerializeObject(url);
-                JObject mods = JObject.Parse(url);
-                Console.WriteLine(mods["0.5.0.0"]["mods"]["HANGEMHIGH"]["Name"] + ": " + mods["0.5.0.0"]["mods"]["HANGEMHIGH"]["Url"] + " " + mods["0.5.0.0"]["mods"]["HANGEMHIGH"]["Filename"]);
+                if (mod.Value.Dependencies == null)
+                {
+                    Console.WriteLine(mod.Value.Name + " " + mod.Value.Version);
+                    Console.WriteLine(mod.Value.Url + " " + mod.Value.Filename);
+                }
+                else
+                {
+                    Console.WriteLine(mod.Value.Name + " " + mod.Value.Version);
+                    Console.WriteLine(mod.Value.Url + " " + mod.Value.Filename);
+
+                    foreach (string dependency in mod.Value.Dependencies)
+                    {
+                        Console.WriteLine(dependency);
+                    }
+                }
+                Console.WriteLine();
             }
         }
         internal static void List(string arg0, string arg1)
