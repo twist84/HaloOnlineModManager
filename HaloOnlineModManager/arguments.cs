@@ -254,7 +254,7 @@ namespace getArgs
             dynamic mods = JsonConvert.DeserializeObject(wc.DownloadString("http://thetwist84.github.io/HaloOnlineModManager/mods/mods.json"));
             FileVersionInfo mtndewVersion = FileVersionInfo.GetVersionInfo(Path.Combine(Environment.CurrentDirectory, "mtndew.dll"));
 
-            foreach (dynamic mod in mods[mtndewVersion].mods)
+            foreach (dynamic mod in mods[mtndewVersion.FileVersion].mods)
             {
                 if (mod.Value.Dependencies == null)
                 {
