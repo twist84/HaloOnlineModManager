@@ -259,16 +259,37 @@ namespace getArgs
                 if (mod.Value.Dependencies == null)
                 {
                     Console.WriteLine(mod.Value.Name + " " + mod.Value.Version);
-                    Console.WriteLine(mod.Value.Url + " " + mod.Value.Filename);
+                    if (mod.Value.Url != "")
+                        Console.WriteLine(mod.Value.Url + " " + mod.Value.Filename);
                 }
                 else
                 {
                     Console.WriteLine(mod.Value.Name + " " + mod.Value.Version);
-                    Console.WriteLine(mod.Value.Url + " " + mod.Value.Filename);
+                    if (mod.Value.Url != "")
+                        Console.WriteLine(mod.Value.Url + " " + mod.Value.Filename);
+                    int Count = 1;
 
                     foreach (string dependency in mod.Value.Dependencies)
                     {
-                        Console.WriteLine(dependency);
+                        if (dependency.Contains("http"))
+                        {
+                            Console.WriteLine("Dep " + Count + ": " + dependency);
+                        }
+                        else
+                        {
+                            dynamic dep = mods[mtndewVersion.FileVersion].mods[dependency];
+                            if (dep.Version == "") 
+                            {
+                                Console.WriteLine("Dep " + Count + ": " + dep.Name);
+                            }
+                            else 
+                            {
+                                Console.WriteLine("Dep " + Count + ": " + dep.Name + " " + dep.Version);
+                                if (mod.Value.Url != "")
+                                    Console.WriteLine(dep.Url + " \"" + dep.Filename + "\"");
+                            }
+                        }
+                        Count++;
                     }
                 }
                 Console.WriteLine();
