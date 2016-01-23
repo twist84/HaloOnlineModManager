@@ -15,8 +15,6 @@ namespace getArgs
 {
     class Program
     {
-        static string cwd = Directory.GetCurrentDirectory() + "\\";
-        static string backupFolder = Directory.GetCurrentDirectory() + "\\_dewbackup\\maps\\";
         internal static void Help()
         {
             Console.WriteLine("[/, -, --]help");
@@ -41,6 +39,8 @@ namespace getArgs
             Console.WriteLine("\nPress Any Key To Exit");
             Console.ReadLine();
         }
+        static string cwd = Directory.GetCurrentDirectory() + "\\";
+        static string backupFolder = Directory.GetCurrentDirectory() + "\\_dewbackup\\maps\\";
         internal static void Backup(string arg1, bool force, bool batch)
         {
             string[] getTags = Directory.GetFiles(cwd + "maps\\" + arg1 + "\\", "*.dat", SearchOption.TopDirectoryOnly);
