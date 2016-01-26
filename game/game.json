@@ -1,0 +1,77 @@
+{
+    "base": {
+        "Name": "ElDewrito 0.5.0.2",
+        "Version": "0.5.0.2",
+        "Filename": "ElDewrito_0.5.0.2_Release.zip",
+        "Url": "https://mega.nz/#!VchVRZ4D!3rmuKpf5LZ-FKV3xZFNRW-PrBt7h4tRDSpmnjK9yAhU"
+    },
+    "mods": {
+        "0.5.0.2": {
+            "FLATGRASS": {
+                "Author": "Xe_CREATURE",
+                "Name": "FlatGrass",
+                "Version": "R08-119",
+                "Filename": "FlatGrass R08 Release (ED 0.5.0.2).zip",
+                "Url": "https://mega.nz/#!yAthjBwa!1SUB2WVGFTHbva17b0vwsrAKkFV5F15r4wmnc3lYnL0"
+            },
+            "HANGEMHIGH": {
+                "Author": "Dank1496",
+                "Name": "Hang 'Em High",
+                "Version": "NULL",
+                "Filename": "hangemhigh.rar",
+                "Url": "https://www.dropbox.com/s/yvlagi1ssh4th77/hangemhigh.rar?dl=0",
+                "Dependencies": [
+                    "FLATGRASS"
+                ]
+            },
+            "AIRGLOW": {
+                "Author": "8Phantasm",
+                "Name": "Airglow",
+                "Version": "1.5",
+                "Filename": "Airglow-1.5.zip",
+                "Url": "https://mega.nz/#!CIFSHRxB!tzO39By66_ZbxCQY3BffIMFP6SO6OSmVNenTylAYmo0"
+            },
+            "SCARABGUN": {
+                "Author": "Zharbon",
+                "Name": "Scarab Gun Mod",
+                "Version": "2",
+                "Filename": "Scarab Gun Mod.zip",
+                "Url": "https://mega.nz/#!U5lSmJpT!CpFRE7HUAwuxKsbRcdYXb6j0A-MJWDKFAuO1uoqQ9DI"
+            },
+            "H3ARMORS": {
+                "Author": "dany5639",
+                "Name": "Halo 3 Armors",
+                "Version": "2.5",
+                "Filename": "halo3armors_2.5.zip",
+                "Url": "https://mega.nz/#!cgV3kB6a!D52kfeU7n_S9Y7vbhjwbr6sPAd_TktZW092mapXKgdQ",
+                "Dependencies": [
+                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar",
+                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/salvation.rar",
+                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
+                ]
+            },
+            "H3HUD": {
+                "Author": "Alex-231",
+                "Name": "Halo 3 HUD for Halo Online",
+                "Version": "1.2",
+                "Filename": "Halo 3 HUD V1.2.zip",
+                "Url": "https://mega.nz/#!LopnzBRA!SRieJ3oBRG0R-WZeWVavyzgg1QPVyt20BHuloh2ILXs"
+            },
+            "H3WEAPONS": {
+                "Author": "dany5639",
+                "Name": "Halo 3 Weapons",
+                "Version": "",
+                "Filename": "",
+                "Url": ""
+            },
+            "H3PACK": {
+                "Name": "Halo 3 Pack",
+                "Dependencies": [
+                    "H3ARMORS",
+                    "H3HUD",
+                    "H3WEAPONS"
+                ]
+            }
+        }
+    }
+}
