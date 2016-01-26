@@ -251,10 +251,10 @@ namespace getArgs
         internal static void Available()
         {
             System.Net.WebClient wc = new System.Net.WebClient();
-            dynamic mods = JsonConvert.DeserializeObject(wc.DownloadString("http://thetwist84.github.io/HaloOnlineModManager/mods/mods.json"));
+            dynamic mods = JsonConvert.DeserializeObject(wc.DownloadString("http://thetwist84.github.io/HaloOnlineModManager/game/game.json"));
             FileVersionInfo mtndewVersion = FileVersionInfo.GetVersionInfo(Path.Combine(Environment.CurrentDirectory, "mtndew.dll"));
 
-            foreach (dynamic mod in mods[mtndewVersion.FileVersion].mods)
+            foreach (dynamic mod in mods.mods[mtndewVersion.FileVersion])
             {
                 if (mod.Value.Dependencies == null)
                 {
@@ -277,7 +277,7 @@ namespace getArgs
                         }
                         else
                         {
-                            dynamic dep = mods[mtndewVersion.FileVersion].mods[dependency];
+                            dynamic dep = mods.mods[mtndewVersion.FileVersion][dependency];
                             if (dep.Version == "") 
                             {
                                 Console.WriteLine("Dep " + Count + ": " + dep.Name);
