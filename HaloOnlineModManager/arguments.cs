@@ -170,19 +170,19 @@ namespace getArgs
                 Console.WriteLine("There is currently no support for google drive or google docs.\n");
             else if (arg2.Contains("mega.co.nz") || arg2.Contains("mega.nz"))
             {
-                MegaApiClient client = new MegaApiClient();
-                client.LoginAnonymous();
+                MegaApiClient mega = new MegaApiClient();
+                mega.LoginAnonymous();
                 Uri uri = new Uri(arg2);
-                Task task = client.DownloadFileAsync(uri, dlLoc + arg3);
+                Task task = mega.DownloadFileAsync(uri, dlLoc + arg3);
                 while (!task.IsCompleted)
                 {
                     using (var progress = new ProgressBar())
                     {
-                        for (; client.Progress <= 100; )
+                        for (; mega.Progress <= 100; )
                         {
-                            progress.Report((double)client.Progress / 100);
+                            progress.Report((double)mega.Progress / 100);
                             Thread.Sleep(20);
-                            if (client.Progress == 100)
+                            if (mega.Progress == 100)
                                 break;
                         }
                     }
