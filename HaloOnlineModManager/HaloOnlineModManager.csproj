@@ -72,9 +72,9 @@
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MegaApiClient, Version=1.1.3.98, Culture=neutral, PublicKeyToken=0480d311efbeb4e2, processorArchitecture=MSIL">
-      <HintPath>..\packages\MegaApiClient.1.1.3\lib\net40\MegaApiClient.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MegaApiClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0480d311efbeb4e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HaloOnlineInstaller\HaloOnlineInstaller\MegaApiClient.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -97,8 +97,10 @@
   <ItemGroup>
     <Compile Include="arguments.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="progressbar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="xdelta.cs" />
+    <None Include="MegaApiClient.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
@@ -127,6 +129,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
+    <Content Include="MegaApiClient.dll" />
+    <Content Include="MegaApiClient.pdb" />
+    <Content Include="MegaApiClient.XML" />
+    <Content Include="Newtonsoft.Json.dll" />
+    <Content Include="Newtonsoft.Json.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

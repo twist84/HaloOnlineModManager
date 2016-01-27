@@ -10,6 +10,8 @@ using ICSharpCode.SharpZipLib.Zip;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xdelta.Patch;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace getArgs
 {
@@ -171,11 +173,20 @@ namespace getArgs
                 MegaApiClient client = new MegaApiClient();
                 client.LoginAnonymous();
                 Uri uri = new Uri(arg2);
-                Console.WriteLine("Download started for: " + arg3);
-                Stopwatch watcher = Stopwatch.StartNew();
-                client.DownloadFile(uri, dlLoc + arg3);
-                watcher.Stop();
-                Console.WriteLine("Download finished for: " + arg3 + " in {0}.\n ", watcher.Elapsed);
+                Task task = client.DownloadFileAsync(uri, dlLoc + arg3);
+                while (!task.IsCompleted)
+                {
+                    using (var progress = new ProgressBar())
+                    {
+                        for (; client.Progress <= 100; )
+                        {
+                            progress.Report((double)client.Progress / 100);
+                            Thread.Sleep(20);
+                            if (client.Progress == 100)
+                                break;
+                        }
+                    }
+                }
             }
             else if (arg2.Contains("dropbox"))
             {
