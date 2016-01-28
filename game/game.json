@@ -11,7 +11,7 @@
                 "Author": "Xe_CREATURE",
                 "Name": "FlatGrass",
                 "Version": "R08-119",
-                "Filename": "FlatGrass R08 Release (ED 0.5.0.2).zip",
+                "Filename": "FlatGrass_R08_Release_(ED_0.5.0.2).zip",
                 "Url": "https://mega.nz/#!yAthjBwa!1SUB2WVGFTHbva17b0vwsrAKkFV5F15r4wmnc3lYnL0"
             },
             "HANGEMHIGH": {
@@ -28,28 +28,35 @@
                 "Author": "8Phantasm",
                 "Name": "Airglow",
                 "Version": "1.5",
-                "Filename": "Airglow-1.5.zip",
+                "Filename": "Airglow_1.5.zip",
                 "Url": "https://mega.nz/#!CIFSHRxB!tzO39By66_ZbxCQY3BffIMFP6SO6OSmVNenTylAYmo0"
             },
             "SCARABGUN": {
                 "Author": "Zharbon",
                 "Name": "Scarab Gun Mod",
                 "Version": "2",
-                "Filename": "Scarab Gun Mod.zip",
+                "Filename": "Scarab_Gun_Mod.zip",
                 "Url": "https://mega.nz/#!U5lSmJpT!CpFRE7HUAwuxKsbRcdYXb6j0A-MJWDKFAuO1uoqQ9DI"
             },
             "PELICANDLC": {
                 "Author": "Tillice and AltSierra117",
-                "Name": "Scarab Gun Mod",
+                "Name": "Flyable Pelican",
                 "Version": "",
-                "Filename": "Add-on Pelican DLC 0-5-0-2.rar",
+                "Filename": "Flyable_Pelican.rar",
                 "Url": "https://mega.nz/#!KxZBXYBA!bMtNhpxa7ToSJVIP2hCTFTbtY7dHIzdMwnNsvZWFIL0"
+            "ODSTHUD": {
+                "Author": "Tillice and AltSierra117",
+                "Name": "Halo ODST HUD",
+                "Version": "",
+                "Filename": "Halo_ODST_HUD.zip",
+                "Url": "http://puu.sh/kKukH/9706631bfa.zip"
+            }
             },
             "HOHUDFIXUP": {
                 "Author": "Alex-231",
                 "Name": "Halo Online HUD Fixup",
                 "Version": "1.02",
-                "Filename": "Halo Online HUD Fixup V1.02.zip",
+                "Filename": "Halo_Online_HUD_Fixup_V1.02.zip",
                 "Url": "https://github.com/Alex-231/H-O-HUD-Fixup/archive/1.02.zip"
             },
             "H3ARMORS": {
@@ -68,7 +75,7 @@
                 "Author": "Alex-231",
                 "Name": "Halo 3 HUD for Halo Online",
                 "Version": "1.2",
-                "Filename": "Halo 3 HUD V1.2.zip",
+                "Filename": "Halo_3_HUD_V1.2.zip",
                 "Url": "https://mega.nz/#!LopnzBRA!SRieJ3oBRG0R-WZeWVavyzgg1QPVyt20BHuloh2ILXs"
             },
             "H3WEAPONS": {
