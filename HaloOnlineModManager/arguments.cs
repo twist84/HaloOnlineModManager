@@ -176,20 +176,15 @@ namespace getArgs
                 MegaApiClient mega = new MegaApiClient();
                 mega.LoginAnonymous();
                 Uri uri = new Uri(arg2);
-                Task task = mega.DownloadFileAsync(uri, dlLoc + arg3);
-                while (!task.IsCompleted)
+                Task t = mega.DownloadFileAsync(uri, dlLoc + arg3);
+                using (var progress = new ProgressBar())
                 {
-                    using (var progress = new ProgressBar())
+                    while (!t.IsCompleted)
                     {
-                        for (; mega.Progress <= 100; )
-                        {
-                            progress.Report((double)mega.Progress / 100);
-                            Thread.Sleep(20);
-                            if (mega.Progress == 100)
-                                break;
-                        }
+                        progress.Report((double)mega.Progress / 100);
                     }
                 }
+                mega.Logout();
             }
             else if (arg2.Contains("dropbox"))
             {
