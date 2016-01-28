@@ -3,6 +3,7 @@
         "Name": "ElDewrito 0.5.0.2",
         "Version": "0.5.0.2",
         "Filename": "ElDewrito_0.5.0.2_Release.zip",
+        "Hash": "af3818e7a35371c7ad2c3c3f7b340979c9972ab965754b55b91ea208f1e2bc19",
         "Url": "https://mega.nz/#!VchVRZ4D!3rmuKpf5LZ-FKV3xZFNRW-PrBt7h4tRDSpmnjK9yAhU"
     },
     "mods": {
@@ -12,6 +13,7 @@
                 "Name": "FlatGrass",
                 "Version": "R08-119",
                 "Filename": "FlatGrass_R08_Release_(ED_0.5.0.2).zip",
+                "Hash": "FC78B840DB8D5EACD1B0543AEA959CCD95FA4FDBA73A61C29369B382ED701E00",
                 "Url": "https://mega.nz/#!yAthjBwa!1SUB2WVGFTHbva17b0vwsrAKkFV5F15r4wmnc3lYnL0"
             },
             "HANGEMHIGH": {
@@ -19,6 +21,7 @@
                 "Name": "Hang 'Em High",
                 "Version": "",
                 "Filename": "hangemhigh.rar",
+                "Hash": "20E1C2B238C5219D1BFE7756E7B715D1CAF4037D95648AC8B134AE6D17C8909A",
                 "Url": "https://www.dropbox.com/s/yvlagi1ssh4th77/hangemhigh.rar?dl=0",
                 "Dependencies": [
                     "FLATGRASS"
@@ -27,36 +30,33 @@
             "AIRGLOW": {
                 "Author": "8Phantasm",
                 "Name": "Airglow",
-                "Version": "1.5",
-                "Filename": "Airglow_1.5.zip",
-                "Url": "https://mega.nz/#!CIFSHRxB!tzO39By66_ZbxCQY3BffIMFP6SO6OSmVNenTylAYmo0"
+                "Version": "1.6",
+                "Filename": "Airglow_1.6.zip",
+                "Hash": "80EF190C7951EF6D8384CFD6EBA9C2FE3F4412D95098986EAC1C948D7865E468",
+                "Url": "https://mega.nz/#!fFNAkL5R!YQ_E_3UCqbEYcbDhcUyUgSXE92OMiVKQ7fwus8uX6Wk"
             },
             "SCARABGUN": {
                 "Author": "Zharbon",
                 "Name": "Scarab Gun Mod",
                 "Version": "2",
                 "Filename": "Scarab_Gun_Mod.zip",
+                "Hash": "346678608412D19BBDF5D7125DD3192E770FB288399DCDB4FAAEDE9510611DE6",
                 "Url": "https://mega.nz/#!U5lSmJpT!CpFRE7HUAwuxKsbRcdYXb6j0A-MJWDKFAuO1uoqQ9DI"
             },
-            "PELICANDLC": {
-                "Author": "Tillice and AltSierra117",
-                "Name": "Flyable Pelican",
-                "Version": "",
-                "Filename": "Flyable_Pelican.rar",
-                "Url": "https://mega.nz/#!KxZBXYBA!bMtNhpxa7ToSJVIP2hCTFTbtY7dHIzdMwnNsvZWFIL0"
             "ODSTHUD": {
                 "Author": "Tillice and AltSierra117",
                 "Name": "Halo ODST HUD",
                 "Version": "",
                 "Filename": "Halo_ODST_HUD.zip",
+                "Hash": "4AACB19765621A78DC7925EB29EB0354B5DF5251D7BDF8F5D64EFC58B79A869F",
                 "Url": "http://puu.sh/kKukH/9706631bfa.zip"
-            }
             },
             "HOHUDFIXUP": {
                 "Author": "Alex-231",
                 "Name": "Halo Online HUD Fixup",
                 "Version": "1.02",
                 "Filename": "Halo_Online_HUD_Fixup_V1.02.zip",
+                "Hash": "12106BA201EDFEBB9884246EF50AAD9396F117ED17AD17B31FD29533CFB080AC",
                 "Url": "https://github.com/Alex-231/H-O-HUD-Fixup/archive/1.02.zip"
             },
             "H3ARMORS": {
@@ -64,6 +64,7 @@
                 "Name": "Halo 3 Armors",
                 "Version": "2.5",
                 "Filename": "halo3armors_2.5.zip",
+                "Hash": "1599FAB606D5A40972D32877526173C2436033636FBBACD7B2271E89F13019F6",
                 "Url": "https://mega.nz/#!cgV3kB6a!D52kfeU7n_S9Y7vbhjwbr6sPAd_TktZW092mapXKgdQ",
                 "Dependencies": [
                     "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar",
@@ -76,6 +77,7 @@
                 "Name": "Halo 3 HUD for Halo Online",
                 "Version": "1.2",
                 "Filename": "Halo_3_HUD_V1.2.zip",
+                "Hash": "1599FAB606D5A40972D32877526173C2436033636FBBACD7B2271E89F13019F6",
                 "Url": "https://mega.nz/#!LopnzBRA!SRieJ3oBRG0R-WZeWVavyzgg1QPVyt20BHuloh2ILXs"
             },
             "H3WEAPONS": {
