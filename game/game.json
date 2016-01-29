@@ -96,5 +96,71 @@
                 ]
             }
         }
+    },
+    "variants": {
+        "forge": {
+            "Diamond Back": [
+                ""
+            ],
+            "Guardian": [
+                ""
+            ],
+            "High Ground": [
+                ""
+            ],
+            "Ice Box": [
+                ""
+            ],
+            "Last Resort": [
+                ""
+            ],
+            "Narrows": [
+                ""
+            ],
+            "Reactor": [
+                ""
+            ],
+            "Sandtrap": [
+                ""
+            ],
+            "Standoff": [
+                ""
+            ],
+            "The Pit": [
+                ""
+            ],
+            "Valhalla": [
+                ""
+            ]
+        },
+        "gametype": {
+            "Assault": [
+                ""
+            ],
+            "CTF": [
+                ""
+            ],
+            "Infection": [
+                ""
+            ],
+            "Juggernaut": [
+                ""
+            ],
+            "KOTHill": [
+                ""
+            ],
+            "Oddball": [
+                ""
+            ],
+            "Slayer": [
+                ""
+            ],
+            "Territories": [
+                ""
+            ],
+            "VIP": [
+                ""
+            ]
+        }
     }
 }
