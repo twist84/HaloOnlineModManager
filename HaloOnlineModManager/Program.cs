@@ -77,7 +77,7 @@ namespace HaloOnlineModManager
                 }
                 else if (args[0].Contains("a") || args[0].Contains("available"))
                 {
-                    getArgs.Program.Available();
+                    getArgs.Program.ModsAvailable();
                 }
                 else
                 {

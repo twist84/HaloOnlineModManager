@@ -97,7 +97,6 @@
   <ItemGroup>
     <Compile Include="arguments.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="progressbar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="xdelta.cs" />
     <None Include="MegaApiClient.dll.config" />
