@@ -105,8 +105,8 @@
                 "Name": "Halo 3 Pack",
                 "Dependencies": [
                     "H3ARMORS",
-                    "H3HUD",
-                    "H3WEAPONS"
+                    "H3WEAPONS",
+                    "H3HUD"
                 ]
             }
         }
