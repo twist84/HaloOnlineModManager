@@ -80,6 +80,18 @@
                     "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
                 ]
             },
+            "H3WEAPONS": {
+                "Author": "dany5639",
+                "Name": "Halo 3 Weapons",
+                "Version": "05",
+                "Filename": "halo3weapons_V05.zip",
+                "Hash": "0400CD8B923F9CF4071A03380531448463E40505F88BD2D1200A0D2357CED902",
+                "Url": "https://mega.nz/#!ExkHmI7I!ckBTuwxR90wze2lJvYJjzFYVGRBjrxQEZ3ozssaXwPY",
+                "Dependencies": [
+                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar",
+                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/salvation.rar",
+                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
+            },
             "H3HUD": {
                 "Author": "Alex-231",
                 "Name": "Halo 3 HUD for Halo Online",
@@ -87,13 +99,6 @@
                 "Filename": "Halo_3_HUD_V1.2.zip",
                 "Hash": "1599FAB606D5A40972D32877526173C2436033636FBBACD7B2271E89F13019F6",
                 "Url": "https://mega.nz/#!LopnzBRA!SRieJ3oBRG0R-WZeWVavyzgg1QPVyt20BHuloh2ILXs"
-            },
-            "H3WEAPONS": {
-                "Author": "dany5639",
-                "Name": "Halo 3 Weapons",
-                "Version": "",
-                "Filename": "",
-                "Url": ""
             },
             "H3PACK": {
                 "Name": "Halo 3 Pack",
