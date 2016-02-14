@@ -76,10 +76,10 @@
             "H3WEAPONS": {
                 "Author": "dany5639",
                 "Name": "Halo 3 Weapons",
-                "Version": "09",
-                "Filename": "halo3weapons_V09.zip",
-                "Hash": "94857375E172622B30A260158C865FB0E85A71A17876DDF35CDD505EFC2D437D",
-                "Url": "https://mega.nz/#!p0NkiLQZ!XtZsCA39sKQOGUpnm7fngfByJBRPV5oeSTX3ks-zO7A",
+                "Version": "1.0",
+                "Filename": "halo3weapons_V1.0.zip",
+                "Hash": "A4932CCC4BB4689776FD04232C1C224EB6FED001D59D30D936ECB8B25B6BAAC6",
+                "Url": "https://mega.nz/#!d0dknKDZ!KhjbmCkOxlBwnHK05-n4YNZFArdunvPFN1P4cofjt_0",
                 "Dependencies": [
                     "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar",
                     "https://files.gruntmods.com/halo/Files/Halo 3/Maps/salvation.rar",
