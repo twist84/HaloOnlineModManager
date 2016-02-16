@@ -86,6 +86,14 @@
                     "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
                 ]
             },
+            "H3SOUNDS": {
+                "Author": "dany5639",
+                "Name": "Halo 3 Sounds",
+                "Version": "",
+                "Filename": "",
+                "Hash": "",
+                "Url": ""
+            },
             "H3HUD": {
                 "Author": "Alex-231",
                 "Name": "Halo 3 HUD for Halo Online",
@@ -99,6 +107,7 @@
                 "Dependencies": [
                     "H3ARMORS",
                     "H3WEAPONS",
+                    "H3SOUNDS",
                     "H3HUD"
                 ]
             }
