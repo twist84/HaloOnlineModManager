@@ -88,11 +88,11 @@
             },
             "H3SOUNDS": {
                 "Author": "dany5639",
-                "Name": "Halo 3 Sounds",
-                "Version": "",
-                "Filename": "",
-                "Hash": "",
-                "Url": ""
+                "Name": "Halo 3 Sounds (TEST)",
+                "Version": "0.1",
+                "Filename": "halo3sounds_test_01.zip",
+                "Hash": "B89831B88C8B74142A81215674C335695F713C97840F4915A70F4E2BFFE475AE",
+                "Url": "https://mega.nz/#!Qk1UETJB!J8qD-bN6KZlV5xTydd2guWDp0K4NQL1GCl5EPkqunIU"
             },
             "H3HUD": {
                 "Author": "Alex-231",
