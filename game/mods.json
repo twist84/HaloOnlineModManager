@@ -119,8 +119,7 @@
                 "Dependencies": [
                     "H3ARMORS",
                     "H3WEAPONS",
-                    "H3SOUNDS",
-                    "H3HUD"
+                    "H3SOUNDS"
                 ]
             }
         }
