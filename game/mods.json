@@ -61,15 +61,15 @@
                 "Url": "https://github.com/Alex-231/H-O-HUD-Fixup/archive/1.02.zip"
             },
             "H3MM": {
-                "Name": "mainmenu.rar",
+                "Filename": "mainmenu.rar",
                 "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar"
             },
             "H3SH": {
-                "Name": "shared.rar",
+                "Filename": "shared.rar",
                 "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
             },
             "H3SA": {
-                "Name": "salvation.rar",
+                "Filename": "salvation.rar",
                 "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/salvation.rar"
             },
             "H3ARMORS": {
