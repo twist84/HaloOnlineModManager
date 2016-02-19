@@ -60,6 +60,18 @@
                 "Hash": "12106BA201EDFEBB9884246EF50AAD9396F117ED17AD17B31FD29533CFB080AC",
                 "Url": "https://github.com/Alex-231/H-O-HUD-Fixup/archive/1.02.zip"
             },
+            "H3MM": {
+                "Name": "mainmenu.rar",
+                "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar"
+            },
+            "H3SH": {
+                "Name": "shared.rar",
+                "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
+            },
+            "H3SA": {
+                "Name": "salvation.rar",
+                "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/salvation.rar"
+            },
             "H3ARMORS": {
                 "Author": "dany5639",
                 "Name": "Halo 3 Armors",
@@ -68,9 +80,9 @@
                 "Hash": "55D4DBF04D81DB6BA1B0E855C986CC61C2A1F49A4CCADF0F5C2FA4F7989B86B0",
                 "Url": "https://mega.nz/#!Mk9xBKLD!5mepL-jxauXTKU64lhMS93Q63hS2ITOQ0ikFFmUq_Lg",
                 "Dependencies": [
-                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar",
-                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/salvation.rar",
-                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
+                    "H3MM",
+                    "H3SH",
+                    "H3SA"
                 ]
             },
             "H3WEAPONS": {
@@ -81,9 +93,9 @@
                 "Hash": "A4932CCC4BB4689776FD04232C1C224EB6FED001D59D30D936ECB8B25B6BAAC6",
                 "Url": "https://mega.nz/#!d0dknKDZ!KhjbmCkOxlBwnHK05-n4YNZFArdunvPFN1P4cofjt_0",
                 "Dependencies": [
-                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar",
-                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/salvation.rar",
-                    "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
+                    "H3MM",
+                    "H3SH",
+                    "H3SA"
                 ]
             },
             "H3SOUNDS": {
