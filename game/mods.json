@@ -107,23 +107,15 @@
             "H3WEAPONS": {
                 "Author": "dany5639",
                 "Name": "Halo 3 Weapons",
-                "Version": "1.0",
-                "Filename": "halo3weapons_V1.0.zip",
-                "Hash": "A4932CCC4BB4689776FD04232C1C224EB6FED001D59D30D936ECB8B25B6BAAC6",
-                "Url": "https://mega.nz/#!d0dknKDZ!KhjbmCkOxlBwnHK05-n4YNZFArdunvPFN1P4cofjt_0",
+                "Version": "1.1.0",
+                "Filename": "halo3weapons_V1.1.0.zip",
+                "Hash": "627CC0E0071BFAE608AA7D7B89B826BA94881629EF1D5E5C3857E4396F267FC0",
+                "Url": "https://jii.moe/N1nr5ryRx.zip",
                 "Dependencies": [
                     "H3MM",
                     "H3SH",
                     "H3SA"
                 ]
-            },
-            "H3SOUNDS": {
-                "Author": "dany5639",
-                "Name": "Halo 3 Sounds (TEST)",
-                "Version": "0.1",
-                "Filename": "halo3sounds_test_01.zip",
-                "Hash": "B89831B88C8B74142A81215674C335695F713C97840F4915A70F4E2BFFE475AE",
-                "Url": "https://mega.nz/#!Qk1UETJB!J8qD-bN6KZlV5xTydd2guWDp0K4NQL1GCl5EPkqunIU"
             },
             "H3HUD": {
                 "Author": "Alex-231",
@@ -138,7 +130,6 @@
                 "Dependencies": [
                     "H3ARMORS",
                     "H3WEAPONS",
-                    "H3SOUNDS",
                     "H3HUD"
                 ]
             }
