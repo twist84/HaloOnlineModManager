@@ -72,13 +72,13 @@
                 "Filename": "mainmenu.rar",
                 "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/mainmenu.rar"
             },
-            "H3SH": {
-                "Filename": "shared.rar",
-                "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
-            },
             "H3SA": {
                 "Filename": "salvation.rar",
                 "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/salvation.rar"
+            },
+            "H3SH": {
+                "Filename": "shared.rar",
+                "Url": "https://files.gruntmods.com/halo/Files/Halo 3/Maps/shared.rar"
             },
             "H3ARMORS": {
                 "Author": "dany5639",
@@ -89,8 +89,8 @@
                 "Url": "https://mega.nz/#!x8tTBQhC!ZOA0K1pMXpMOR9K_cWydrJoogEmofiC9ZOArMnrl9CY",
                 "Dependencies": [
                     "H3MM",
-                    "H3SH",
-                    "H3SA"
+                    "H3SA",
+                    "H3SH"
                 ]
             },
             "H3WEAPONS": {
@@ -102,8 +102,8 @@
                 "Url": "https://jii.moe/N1nr5ryRx.zip",
                 "Dependencies": [
                     "H3MM",
-                    "H3SH",
-                    "H3SA"
+                    "H3SA",
+                    "H3SH"
                 ]
             },
             "H3HUD": {
