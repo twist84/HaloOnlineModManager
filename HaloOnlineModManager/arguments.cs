@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using CG.Web.MegaApiClient;
-using HaloOnlineLib;
 using ICSharpCode.SharpZipLib.Zip;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Xdelta.Patch;
 
 namespace getArgs
 {
+    public class Settings
+    {
+        public static string CWD { get; } = Directory.GetCurrentDirectory() + "\\";
+        public static string BF { get; } = Directory.GetCurrentDirectory() + "\\_dewbackup\\maps\\";
+    }
+
     class Program
     {
         internal static void Help()
@@ -45,11 +47,9 @@ namespace getArgs
             Console.WriteLine("\nPress Any Key To Exit");
             Console.ReadLine();
         }
-        static string cwd = Directory.GetCurrentDirectory() + "\\";
-        static string backupFolder = Directory.GetCurrentDirectory() + "\\_dewbackup\\maps\\";
         internal static void Backup(string arg1, bool force, bool batch)
         {
-            string[] getTags = Directory.GetFiles(cwd + "maps\\" + arg1 + "\\", "*.dat", SearchOption.TopDirectoryOnly);
+            string[] getTags = Directory.GetFiles(Settings.CWD + "maps\\" + arg1 + "\\", "*.dat", SearchOption.TopDirectoryOnly);
             Console.WriteLine("Backup started.");
             if (force == true)
             {
@@ -57,9 +57,9 @@ namespace getArgs
                 {
                     Stopwatch watcher = Stopwatch.StartNew();
                     string fileName = Path.GetFileName(datFile);
-                    string tagsFolder = cwd + "maps\\" + arg1 + "\\";
-                    Directory.CreateDirectory(backupFolder);
-                    File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName, true);
+                    string tagsFolder = Settings.CWD + "maps\\" + arg1 + "\\";
+                    Directory.CreateDirectory(Settings.BF);
+                    File.Copy(tagsFolder + fileName, Settings.BF + arg1 + "\\" + fileName, true);
                     watcher.Stop();
                     Console.WriteLine(fileName + " has been backed up in {0}.", watcher.Elapsed);
                 }
@@ -70,9 +70,9 @@ namespace getArgs
                 {
                     Stopwatch watcher = Stopwatch.StartNew();
                     string fileName = Path.GetFileName(datFile);
-                    string tagsFolder = cwd + "maps\\" + arg1 + "\\";
-                    Directory.CreateDirectory(backupFolder);
-                    File.Copy(tagsFolder + fileName, backupFolder + arg1 + "\\" + fileName);
+                    string tagsFolder = Settings.CWD + "maps\\" + arg1 + "\\";
+                    Directory.CreateDirectory(Settings.BF);
+                    File.Copy(tagsFolder + fileName, Settings.BF + arg1 + "\\" + fileName);
                     watcher.Stop();
                     Console.WriteLine(fileName + " has been backed up in {0}.", watcher.Elapsed);
                 }
@@ -87,7 +87,7 @@ namespace getArgs
         internal static void Restore(string arg1, bool force, bool batch)
         {
             string[] getTags = Directory.GetFiles(
-                backupFolder + arg1 + "\\",
+                Settings.BF + arg1 + "\\",
                 "*.dat",
                 SearchOption.TopDirectoryOnly
             );
@@ -98,8 +98,8 @@ namespace getArgs
                 {
                     Stopwatch watcher = Stopwatch.StartNew();
                     string fileName = Path.GetFileName(datFile);
-                    string tagsFolder = cwd + "maps\\" + arg1 + "\\";
-                    File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName, true);
+                    string tagsFolder = Settings.CWD + "maps\\" + arg1 + "\\";
+                    File.Copy(Settings.BF + arg1 + "\\" + fileName, tagsFolder + fileName, true);
                     watcher.Stop();
                     Console.WriteLine(fileName + " has been restored in {0}.", watcher.Elapsed);
                 }
@@ -110,8 +110,8 @@ namespace getArgs
                 {
                     Stopwatch watcher = Stopwatch.StartNew();
                     string fileName = Path.GetFileName(datFile);
-                    string tagsFolder = cwd + "maps\\" + arg1 + "\\";
-                    File.Copy(backupFolder + arg1 + "\\" + fileName, tagsFolder + fileName);
+                    string tagsFolder = Settings.CWD + "maps\\" + arg1 + "\\";
+                    File.Copy(Settings.BF + arg1 + "\\" + fileName, tagsFolder + fileName);
                     watcher.Stop();
                     Console.WriteLine(fileName + " has been restored in {0}.", watcher.Elapsed);
                 }
@@ -125,8 +125,8 @@ namespace getArgs
         }
         internal static void Patch(string arg1, string arg2, string arg3, bool batch)
         {
-            string tagsFolder = cwd + "maps\\" + arg1 + "\\";
-            string[] getModDir = Directory.GetDirectories(cwd + arg2, arg3, SearchOption.AllDirectories);
+            string tagsFolder = Settings.CWD + "maps\\" + arg1 + "\\";
+            string[] getModDir = Directory.GetDirectories(Settings.CWD + arg2, arg3, SearchOption.AllDirectories);
             Console.WriteLine("Patching started.");
             foreach (string modDir in getModDir)
             {
@@ -138,7 +138,7 @@ namespace getArgs
                     string patchFileNameExt = Path.GetFileName(patchFile);
                     string patchFileName = Path.GetFileNameWithoutExtension(patchFileNameExt);
                     string datFileNameExt = patchFileName + ".dat";
-                    PatchClass.Main(backupFolder + datFileNameExt, patchFile, tagsFolder + datFileNameExt, datFileNameExt);
+                    PatchClass.Main(Settings.BF + datFileNameExt, patchFile, tagsFolder + datFileNameExt, datFileNameExt);
                     watcher.Stop();
                     Console.WriteLine(datFileNameExt + " has been patched in {0}.", watcher.Elapsed);
                 }
@@ -153,7 +153,7 @@ namespace getArgs
         }
         internal static void Zip(string arg1)
         {
-            string[] getMods = Directory.GetFiles(cwd + arg1, "*.zip", SearchOption.AllDirectories);
+            string[] getMods = Directory.GetFiles(Settings.CWD + arg1, "*.zip", SearchOption.AllDirectories);
             foreach (string modFile in getMods)
             {
                 Console.WriteLine("Started showing " + modFile);
@@ -169,7 +169,7 @@ namespace getArgs
         }
         internal static void Download(string arg1, string arg2, string arg3, bool batch)
         {
-            string dlLoc = cwd + "mods\\packs\\" + arg1 + "\\";
+            string dlLoc = Settings.CWD + "mods\\packs\\" + arg1 + "\\";
             if (arg2.Contains("google"))
                 Console.WriteLine("There is currently no support for google drive or google docs.\n");
             else if (arg2.Contains("mega.co.nz") || arg2.Contains("mega.nz"))
@@ -307,7 +307,7 @@ namespace getArgs
         }
         internal static void List(string arg0, string arg1)
         {
-            string[] getMods = Directory.GetFiles(cwd + arg0, arg1, SearchOption.AllDirectories);
+            string[] getMods = Directory.GetFiles(Settings.CWD + arg0, arg1, SearchOption.AllDirectories);
             foreach (string modFile in getMods)
                 Console.WriteLine(modFile);
         }
